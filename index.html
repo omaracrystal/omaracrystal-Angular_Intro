@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app='testApp'>
+<head>
+  <title>Angular Intro</title>
+</head>
+<body>
+
+  <div ng-controller="mainController">
+    <h1>{{greeting}}</h1>
+    <button ng-click="excite()">CLICK ME</button>
+  </div>
+
+  <div ng-controller="secondaryController">
+
+    <h1>{{greet}}</h1>
+
+    <h2>Movies</h2>
+    <ul ng-repeat="movie in movies | orderBy:'-title'">
+      <li>{{movie.title}}</li>
+    </ul>
+
+    <h2>Students</h2>
+    <ul ng-repeat="student in students | orderBy:reverse">
+      <li ng-if="student!='Billy'">{{student}}</li>
+    </ul>
+
+    <h2>Search Students</h2>
+    <input ng-model="name">
+    <ul ng-repeat="student in students | filter:name">
+      <!-- <li ng-if="name==student">{{student}}</li> -->
+      <li>{{student}}</li>
+    </ul>
+
+  </div>
+
+  <!-- angular -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <!-- angular module -->
+  <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
